@@ -1,9 +1,13 @@
 const express = require("express");
 const config = require("./config");
+
+//* const setupViewEngine = require("./setupViewEngine");
+//* setupViewEngine(app);
 const app = express();
+require("./config/viewEngine")(app);
 
 app.get("/", (req, res) => {
-  res.send("home page");
+  res.render("home");
 });
 
 app.listen(config.PORT, () => {

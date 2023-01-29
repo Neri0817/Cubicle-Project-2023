@@ -34,6 +34,13 @@
       "description": "hard",
       "imageUrl": "https://cdn-cfkdl.nitrocdn.com/RsYdeCXUyMGNzjUpUbtAUDPJnJbVbKpI/assets/static/optimized/rev-58cfe36/wp-content/uploads/2018/06/Pot-Shaped-Cube-Puzzle1.jpg",
       "difficultyLevel": "6"
+    },
+    {
+      "name": "Cute Cube",
+      "description": "a cutie cube",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0254/2030/0362/products/35937-Unicorn-Puzzle-Cube_abc3de41-7981-4ff1-bce7-6531510358f8.jpg",
+      "difficultyLevel": "3",
+      "id": 6
     }
   ]
 }

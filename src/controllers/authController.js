@@ -1,53 +1,53 @@
-const router = require('express').Router();
+const router = require("express").Router();
 
-const authService = require('../services/authService');
+const authService = require("../services/authService");
 
-router.get('/login', (req, res) => {
-    res.render('auth/login');
+router.get("/login", (req, res) => {
+  res.render("auth/login");
 });
 
-router.post('/login', async (req, res) => {
-    const { username, password } = req.body;
+router.post("/login", async (req, res) => {
+  const { username, password } = req.body;
 
-    try {
-        const token = await authService.login(username, password);
+  try {
+    const token = await authService.login(username, password);
 
-        res.cookie('auth', token, { httpOnly: true });
-    } catch (err) {
-        console.log(err);
-    }
+    res.cookie("auth", token, { httpOnly: true });
+  } catch (err) {
+    console.log(err);
+  }
 
-    res.redirect('/');
+  res.redirect("/");
 });
 
-router.get('/register', (req, res) => {
-    res.render('auth/register');
+router.get("/register", (req, res) => {
+  res.render("auth/register");
 });
 
-router.post('/register', async (req, res) => {
-    const { username, password, repeatPassword } = req.body;
+router.post("/register", async (req, res) => {
+  const { username, password, repeatPassword } = req.body;
 
-    if (password !== repeatPassword) {
-        return res.redirect('/404');
-    }
+  if (password !== repeatPassword) {
+    return res.redirect("/404");
+  }
 
-    const existingUser = await authService.getUserByUsername(username);
+  const existingUser = await authService.getUserByUsername(username);
 
-    if (existingUser) {
-        return res.redirect('/404');
-    }
+  if (existingUser) {
+    return res.redirect("/404");
+  }
 
-    const user = await authService.register(username, password);
+  const user = await authService.register(username, password);
 
-    console.log(user);
+  console.log(user);
 
-    res.redirect('/login');
+  res.redirect("/login");
 });
 
-router.get('/logout', (req, res) => {
-    res.clearCookie('auth');
+router.get("/logout", (req, res) => {
+  res.clearCookie("auth");
 
-    res.redirect('/');
+  res.redirect("/");
 });
 
 module.exports = router;

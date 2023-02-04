@@ -1,2 +1,2 @@
-# Cubicle-Project-2023
+# softuni-cubicle-2023
 Softuni Course Project
